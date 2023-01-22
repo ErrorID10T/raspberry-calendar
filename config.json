@@ -1,0 +1,30 @@
+{
+    "picture_background_color": "black",
+    "picture_directory": "pictures",
+    "picture_change_interval": 2,
+    
+    "calendar_background_color": "black",
+    "calendar_current_day_background_color": "grey",
+    "calendar_current_day_text_color": "white",
+    "calendar_current_day_text_size": 36,
+    "calendar_current_day_text_font": "Arial",
+    "calendar_current_month_background_color": "black",
+    "calendar_current_month_text_color": "white",
+    "calendar_current_month_text_size": 36,
+    "calendar_current_month_text_font": "Arial",
+    "calendar_other_month_background_color": "black",
+    "calendar_other_month_text_color": "grey",
+    "calendar_other_month_text_size": 36,
+    "calendar_other_month_text_font": "Arial",
+
+    "clock_background_color": "black",
+    "clock_weekday_text_color": "white",
+    "clock_weekday_text_font": "Arial",
+    "clock_weekday_text_size": 60,
+    "clock_time_text_color": "white",
+    "clock_time_text_font": "Arial",
+    "clock_time_text_size": 40,
+    "clock_date_text_color": "white",
+    "clock_date_text_font": "Arial",
+    "clock_date_text_size": 48
+}

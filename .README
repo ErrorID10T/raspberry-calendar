@@ -1,0 +1,5 @@
+run this command:
+
+pip install -r requirements.txt
+
+if it doesn't work, make sure you have python3 and pip installed
