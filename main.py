@@ -119,27 +119,26 @@ def update_calendar() -> None:
             date = calendar[week][day][0]
             date_type = calendar[week][day][1]
 
-            match date_type:
-                #outside current month
-                case 0:
-                    background_color = settings['calendar_other_month_background_color']
-                    text_color = settings['calendar_other_month_text_color']
-                    text_size = settings['calendar_other_month_text_size']
-                    text_font = settings['calendar_other_month_text_font']
+            #outside current month
+            if date_type == 0:
+                background_color = settings['calendar_other_month_background_color']
+                text_color = settings['calendar_other_month_text_color']
+                text_size = settings['calendar_other_month_text_size']
+                text_font = settings['calendar_other_month_text_font']
 
-                #current month
-                case 1:
-                    background_color = settings['calendar_current_month_background_color']
-                    text_color = settings['calendar_current_month_text_color']
-                    text_size = settings['calendar_current_month_text_size']
-                    text_font = settings['calendar_current_month_text_font']
+            #current month
+            elif date_type == 1:
+                background_color = settings['calendar_current_month_background_color']
+                text_color = settings['calendar_current_month_text_color']
+                text_size = settings['calendar_current_month_text_size']
+                text_font = settings['calendar_current_month_text_font']
 
-                #current day
-                case 2:
-                    background_color = settings['calendar_current_day_background_color']
-                    text_color = settings['calendar_current_day_text_color']
-                    text_size = settings['calendar_current_day_text_size']
-                    text_font = settings['calendar_current_day_text_font']
+            #current day
+            elif date_type == 2:
+                background_color = settings['calendar_current_day_background_color']
+                text_color = settings['calendar_current_day_text_color']
+                text_size = settings['calendar_current_day_text_size']
+                text_font = settings['calendar_current_day_text_font']
 
             tkinter.Label(calendar_frame,
                           text=date,
