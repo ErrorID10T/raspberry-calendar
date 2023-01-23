@@ -70,22 +70,13 @@ def load_image(file: str) -> object:
 
     resized_picture = picture.resize((new_width, new_height), Image.LANCZOS)
     new_picture = ImageTk.PhotoImage(resized_picture)
-
-    # print(f'frame width: {frame_width}')
-    # print(f'frame height: {frame_height}')
-    # print(f'picture width: {picture.width}')
-    # print(f'picture height: {picture.height}')
-    # print(f'width ratio: {width_ratio}')
-    # print(f'height ratio: {height_ratio}')
-    # print(f'new width: {new_width}')
-    # print(f'new height: {new_height}')
     
     return new_width, new_height, new_picture
 
 def picture_rotator() -> str:
     global picture_interval_count
 
-    new_picture_count = int(time.time() / settings['picture_change_interval'])
+    new_picture_count = int( (time.time()-time.timezone) / settings['picture_change_interval'])
     
     supported_picture_types = ('jpg', 'jpeg', 'png')
 
@@ -191,6 +182,15 @@ def update():
     global day_of_month
     global calendar_frame
     global picture_name
+    global settings_modified_time
+    global settings
+
+    if int(time.time()) % 10 == 0:
+        new_settings_modified_time = os.path.getmtime(config_file_path)
+        if settings_modified_time != new_settings_modified_time:
+            settings_modified_time = new_settings_modified_time
+            with open(config_file_path,'r',encoding='utf-8') as settings_file:
+                settings = json.load(settings_file)
 
     update_clock()
 
@@ -206,7 +206,7 @@ def update():
         update_picture()
 
     delay = 1000 - int(datetime.now().microsecond/1000)
-    print(f'delay: {delay} ms')
+    #print(f'delay: {delay} ms')
     window.after(delay, update)
 
 if __name__ == "__main__":
@@ -215,6 +215,9 @@ if __name__ == "__main__":
     picture_interval_count = None
     picture_name = None
     picture = None
+    config_file_path = 'config.json'
+
+    settings_modified_time = os.path.getmtime(config_file_path)
 
     with open('config.json','r',encoding='utf-8') as settings_file:
         settings = json.load(settings_file)

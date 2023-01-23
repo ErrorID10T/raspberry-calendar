@@ -1,7 +1,7 @@
 {
     "picture_background_color": "black",
     "picture_directory": "pictures",
-    "picture_change_interval": 2,
+    "picture_change_interval": 86400,
     
     "calendar_background_color": "black",
     "calendar_current_day_background_color": "grey",
